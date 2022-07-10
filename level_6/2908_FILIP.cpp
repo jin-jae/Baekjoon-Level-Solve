@@ -8,8 +8,19 @@ int	power(int num, int pow) {
 }
 
 int	main(void) {
-	std::string	a, b;
+	int	a, b;
 	std::cin >> a >> b;
-	int	ansa, ansb;
+	int	ansa = 0;
+	int	ansb = 0;
 	for (int i = 2; i >= 0; i--) {
-		ansa += a * power(10, i)
+		ansa += (a % 10) * power(10, i);
+		a /= 10;
+		ansb += (b % 10) * power(10, i);
+		b /= 10;
+	}
+	if (ansa > ansb)
+		std::cout << ansa;
+	else
+		std::cout << ansb;
+	return	0;
+}
